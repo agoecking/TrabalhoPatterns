@@ -18,13 +18,15 @@ public class TestarLoja {
 
 	public static void main(String[] args) {
 		
-		ControleLoja controle = new ControleLoja();
+		ControleLoja controle = new ControleLoja(new PedidoAberto());
 		
 		//teste 1
 		
 		controle.Pagar();
 		
 		controle.Cancelar();
+		
+		controle.setEstadoCompra(new PedidoAberto());
 		
 		//---
 		

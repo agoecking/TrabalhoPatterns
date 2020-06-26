@@ -2,24 +2,18 @@ package trabalho;
 
 public class PedidoAberto implements EstadoCompra {
 	
-	ControleLoja controle;
-	public PedidoAberto(ControleLoja novoControle) {
-		controle = novoControle;
-	}
 	@Override
-	public void Cancelar() {
-		// TODO Auto-generated method stub
-		System.out.println("Pedido será cancelado");
-		controle.isPedidoAberto = false;
-		controle.setEstadoCompra(controle.getEstadoCancelado());
+	public void Cancelar(ControleLoja controle) {
+
+		System.out.println("Pedido foi cancelado");
+		controle.setEstadoCompra(new PedidoCancelado());
 	}
 
 	@Override
-	public void Pagar() {
-		// TODO Auto-generated method stub
+	public void Pagar(ControleLoja controle) {
+
 		System.out.println("Pedido será pago");
-		controle.isPedidoAberto = false;
-		controle.setEstadoCompra(controle.getEstadoPago());
+		controle.setEstadoCompra(new PedidoPago());
 	}
 
 }

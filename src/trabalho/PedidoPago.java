@@ -2,20 +2,18 @@ package trabalho;
 
 public class PedidoPago implements EstadoCompra {
 	
-	ControleLoja controle;
-	public PedidoPago(ControleLoja novoControle) {
-		controle = novoControle;
-	}
 	@Override
-	public void Cancelar() {
-		System.out.println("Pedido já foi pago");
-		controle.setEstadoCompra(controle.getEstadoPago());
+	public void Cancelar(ControleLoja controle) {
+		
+		System.out.println("Pedido já foi pago e não pode ser cancelado");
+		
 	}
 
 	@Override
-	public void Pagar() {
-		System.out.println("Pagamento já computado");
-		controle.setEstadoCompra(controle.getEstadoPago());
+	public void Pagar(ControleLoja controle) {
+		
+		System.out.println("Pagamento já processado");
+		
 	}
 
 }

@@ -2,20 +2,12 @@ package trabalho;
 
 public class ControleLoja {
 	
-	EstadoCompra pedidoAberto;
-	EstadoCompra pedidoPago;
-	EstadoCompra pedidoCancelado;
-	
 	EstadoCompra estado;
 	
-	boolean isPedidoAberto = true;
 	
-	public ControleLoja() {
-		pedidoAberto = new PedidoAberto(this);
-		pedidoPago = new PedidoPago(this);
-		pedidoCancelado = new PedidoCancelado(this);
-		
-		estado = pedidoAberto;
+	public ControleLoja(EstadoCompra estado) {
+	
+		this.estado = estado;
 	}
 	
 	void setEstadoCompra(EstadoCompra novoEstado) {
@@ -23,22 +15,10 @@ public class ControleLoja {
 	}
 	
 	public void Pagar() {
-		estado.Pagar();
+		estado.Pagar(this);
 	}
 	
 	public void Cancelar() {
-		estado.Cancelar();
-	}
-	
-	public EstadoCompra getEstadoAberto() {
-		return pedidoAberto;
-	}
-	
-	public EstadoCompra getEstadoPago() {
-		return pedidoPago;
-	}
-	
-	public EstadoCompra getEstadoCancelado() {
-		return pedidoCancelado;
+		estado.Cancelar(this);
 	}
 }

@@ -2,7 +2,7 @@ package trabalho;
 
 public interface EstadoCompra {
 	
-	void Cancelar();
-	void Pagar();
+	void Cancelar(ControleLoja controle);
+	void Pagar(ControleLoja controle);
 	
 	}
